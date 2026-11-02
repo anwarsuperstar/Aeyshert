@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aisha - CEO of Smiles ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffb6d9, #c9a7ff, #ffd6e7);
+    color: #54234d;
+    min-height: 100vh;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 650px;
+    margin: 35px auto;
+    padding: 25px;
+}
+
+.card {
+    background: rgba(255,255,255,0.88);
+    border-radius: 25px;
+    padding: 35px 22px;
+    box-shadow: 0 10px 35px rgba(100,30,100,0.18);
+    animation: appear 1s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.crown {
+    font-size: 55px;
+}
+
+h1 {
+    color: #d63384;
+    font-size: 32px;
+    margin: 15px 0;
+}
+
+.subtitle {
+    font-size: 17px;
+    color: #86517c;
+    margin-bottom: 25px;
+}
+
+.message {
+    background: #fff0f7;
+    border-radius: 18px;
+    padding: 20px;
+    margin: 20px 0;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+button {
+    border: none;
+    padding: 14px 23px;
+    margin: 9px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ff4f9a, #a64dff);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.06);
+}
+
+.music {
+    background: #ffe5f1;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 20px 0;
+}
+
+#surprise {
+    display: none;
+    background: #ffe6f2;
+    border-radius: 18px;
+    padding: 20px;
+    margin-top: 20px;
+    line-height: 1.8;
+    animation: appear 0.7s ease;
+}
+
+.footer {
+    margin-top: 25px;
+    font-size: 13px;
+    color: #86517c;
+}
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 22px;
+    pointer-events: none;
+    animation: float 6s linear forwards;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<div class="crown">👑</div>
+
+<h1>Aisha ❤️</h1>
+
+<div class="subtitle">
+Officially the CEO of Smiles 😂
+</div>
+
+<div class="message">
+    <h3>📢 SPECIAL ANNOUNCEMENT</h3>
+
+    Dear Madam Aisha,
+
+    It has come to our notice that your smile
+    has been causing unexpected happiness
+    around people.
+
+    😂😂
+
+    We kindly request that you continue
+    spreading happiness.
+
+    <br><br>
+
+    <b>Signed:</b><br>
+    The Department of Happiness ❤️
+</div>
+
+<div class="music">
+
+    <h3>🎵 Your Special Background Sound</h3>
+
+    <p style="margin:10px">
+        A little music to make your day sweeter.
+    </p>
+
+    <audio id="myMusic" loop>
+        <source src="limami.mp3" type="audio/mpeg">
+    </audio>
+
+    <button onclick="toggleMusic()" id="musicBtn">
+        ▶ Play Music
+    </button>
+
+</div>
+
+<h3>😂 A Few Things About You</h3>
+
+<div class="message">
+    1. Professional smile distributor 😊<br>
+    2. CEO of saying "Ameen" 😂<br>
+    3. Minister of keeping people waiting 😭<br>
+    4. Certified owner of good vibes ❤️
+</div>
+
+<button onclick="showSurprise()">
+    🎁 Open Your Surprise
+</button>
+
+<div id="surprise">
+
+    <h2>Surprise! ❤️🎉</h2>
+
+    <p>
+        Aisha, I just want you to know that
+        you deserve happiness, peace and
+        beautiful moments.
+
+        Keep smiling because your happiness
+        matters.
+
+        😂❤️
+    </p>
+
+    <br>
+
+    <h3>One small question...</h3>
+
+    <p>
+        Have you finally decided which nickname
+        suits me? 😂
+    </p>
+
+    <p><b>I'm still waiting ooo! 😭</b></p>
+
+</div>
+
+<div class="footer">
+    Made with good vibes and a little humour ❤️
+    <br>
+    Specially for Aisha.
+</div>
+
+</div>
+</div>
+
+<script>
+
+const music = document.getElementById("myMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+function toggleMusic() {
+
+    if (music.paused) {
+        music.play().then(() => {
+            musicBtn.innerHTML = "⏸ Pause Music";
+        }).catch(() => {
+            alert("Please try playing the music again.");
+        });
+    } else {
+        music.pause();
+        musicBtn.innerHTML = "▶ Play Music";
+    }
+
+}
+
+function showSurprise() {
+    const surprise = document.getElementById("surprise");
+
+    surprise.style.display = "block";
+
+    surprise.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+    createHearts();
+}
+
+function createHearts() {
+
+    const symbols = ["❤️", "💕", "💖", "💗", "🌸"];
+
+    for (let i = 0; i < 25; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+        heart.innerHTML =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration =
+            (3 + Math.random() * 4) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 7000);
+    }
+}
+
+</script>
+
+</body>
+</html>
+c:\Users\USER\Downloads\limami.mp4
